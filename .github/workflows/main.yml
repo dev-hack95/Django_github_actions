@@ -33,7 +33,8 @@ jobs:
 
   build-docker-image:
     runs-on: ubuntu-20.04
-
+    name: Build Image
+    needs: [build]
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2

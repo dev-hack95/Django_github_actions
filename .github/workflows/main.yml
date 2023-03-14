@@ -8,11 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-     strategy:
-      matrix:
-        python-version: [3.8, 3.9]
-        
-
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -21,7 +17,7 @@ jobs:
         uses: actions/setup-python@v4
         with: 
           # Used to fetch specific version of python
-          python-version:  ${{ matrix.python-version }}
+          python-version:  '3.9'
       
 
       - name: Install dependencies

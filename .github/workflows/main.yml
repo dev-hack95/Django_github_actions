@@ -25,6 +25,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Running Test
+
+      - name: Running Test Django
         run: |
           python manage.py test

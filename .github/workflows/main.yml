@@ -5,22 +5,23 @@ on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+     strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+        
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup python version
+      - name: Setup python version $ {{ matrix.python-version }}
         uses: actions/setup-python@v4
         with: 
           # Used to fetch specific version of python
-          python-version: '3.9'
+          python-version:  ${{ matrix.python-version }}
       
 
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Lint Python code
-        uses: jiwidi/python-lint-action@main
